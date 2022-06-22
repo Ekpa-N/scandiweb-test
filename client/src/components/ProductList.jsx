@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { deleteProductsEndpoint } from '../endpoints.js';
 import { Nav, MainBody, ButtonHolder, ProductsContainer } from '../styles.jsx';
 import { ProductDisplay } from './constructs.js';
@@ -7,10 +7,10 @@ import axios from 'axios';
 export default function ProductList({addPage, data, theSkus}) {
     const[deleteProducts, setDeleteProducts] = useState({idArray:[]})
     const displayProducts = new ProductDisplay(data, onCheck)
-    // debugger
+
+    useEffect(()=>{}, [data])
 
     function onCheck(e) {
-        console.log(e)
         if(e.target.checked) {
             let delProd = deleteProducts
             delProd.idArray.push(e.target.id)
@@ -61,7 +61,7 @@ export default function ProductList({addPage, data, theSkus}) {
                 </ButtonHolder>
             </Nav>
             <ProductsContainer>
-                <div>{data.message}</div>
+                <section>{data.message}</section>
             </ProductsContainer>
         </MainBody>
         )

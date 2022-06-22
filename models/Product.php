@@ -22,14 +22,10 @@ class Products{
     
     public function getProds() {
         
-        $query = "SELECT * FROM {$this->table}";
-
-        
+        $query = "SELECT * FROM {$this->table}";        
         $statement = $this->connection->prepare($query);
-
         
         $statement->execute();
-
         return $statement;
     }
 

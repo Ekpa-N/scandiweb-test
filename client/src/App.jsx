@@ -16,6 +16,7 @@ export default function App() {
         .then(result => {
             if(result.data.data === undefined) {
                 setData({message: result.data.message})
+                setTheSkus([])
                 return
             }
             setData(result.data.data)

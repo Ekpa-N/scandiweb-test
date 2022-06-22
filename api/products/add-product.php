@@ -15,17 +15,15 @@ $db = $database->connect();
 
 
 $theProduct = new Products($db);
-
-
 $data = json_decode(file_get_contents("php://input"));
 
 $theProduct->setData($data->sku,$data->name,$data->attribute,$data->price);
 if($theProduct->addProduct()) {
     echo json_encode(
-        array('message' => 'Post Created')
+        array('message' => 'Product Added')
     );
 } else {
     echo json_encode(
-        array('message' => 'Post not Created')
+        array('message' => 'Product not added')
     );    
 }

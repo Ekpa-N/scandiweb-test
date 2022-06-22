@@ -23,10 +23,10 @@ $theProduct->setDeleteData($data->idArray);
 
 if($theProduct->deleteProduct()) {
     echo json_encode(
-        array('message' => 'Product Deleted')
+        array('message' => 'Product not deleted')
     );
 } else {
     echo json_encode(
-        array('message' => 'Post not Created')
+        array('message' => 'Product deleted')
     );    
 }
